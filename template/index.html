@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Kdu</title>
+  <script src="https://unpkg.com/kdu"></script>
+</head>
+<body>
+  <div id="app">
+    <img src="https://kdu-js.web.app/images/logo.png" alt="Kdu logo">
+    <h1>\{{ greeting }}</h1>
+    <ul>
+      <li>
+        To learn more about Kdu, visit
+        <a :href="docsURL" target="_blank">
+          \{{ humanizeURL(docsURL) }}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    var app = new Kdu({
+      el: '#app',
+      data: {
+        greeting: 'Welcome to your Kdu.js app!',
+        docsURL: 'http://kdu-js.web.app/guide/'
+      },
+      methods: {
+        humanizeURL: function (url) {
+          return url
+            .replace(/^https?:\/\//, '')
+            .replace(/\/$/, '')
+        }
+      }
+    })
+  </script>
+</body>
+</html>
